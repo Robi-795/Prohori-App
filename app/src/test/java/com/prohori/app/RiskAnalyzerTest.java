@@ -150,4 +150,25 @@ public class RiskAnalyzerTest {
         assertEquals(RiskLevel.CRITICAL, RiskLevel.fromScore(85));
         assertEquals(RiskLevel.CRITICAL, RiskLevel.fromScore(100));
     }
+
+    private static final String[] MANY_PERMISSIONS = {"INTERNET", "READ_SMS", "RECEIVE_SMS", "SEND_SMS",
+            "READ_CALL_LOG", "WRITE_CALL_LOG", "CALL_PHONE", "READ_PHONE_STATE", "RECORD_AUDIO", "CAMERA",
+            "ACCESS_FINE_LOCATION", "ACCESS_BACKGROUND_LOCATION", "READ_CONTACTS", "WRITE_CONTACTS",
+            "GET_ACCOUNTS", "READ_CALENDAR", "BODY_SENSORS", "SYSTEM_ALERT_WINDOW",
+            "REQUEST_INSTALL_PACKAGES", "PACKAGE_USAGE_STATS"};
+
+    @Test
+    public void systemAppWithManyPermissionsIsNeverAboveMedium() {
+        AppSnapshot s = app(null, MANY_PERMISSIONS);
+        s.systemApp = true;
+        RiskResult r = RiskAnalyzer.analyze(s);
+        assertEquals("score was " + r.riskScore, RiskLevel.MEDIUM, r.riskLevel);
+        assertEquals(RiskAnalyzer.SYSTEM_APP_MAX_SCORE, r.riskScore);
+    }
+
+    @Test
+    public void userAppWithSamePermissionsIsStillCritical() {
+        RiskResult r = RiskAnalyzer.analyze(app(null, MANY_PERMISSIONS));
+        assertEquals(RiskLevel.CRITICAL, r.riskLevel);
+    }
 }

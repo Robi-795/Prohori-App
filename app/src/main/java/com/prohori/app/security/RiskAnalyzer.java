@@ -19,7 +19,8 @@ import java.util.List;
  *     see or control what happens on screen.
  *  3. Dangerous combinations, for example "can read SMS" together with internet access.
  *  4. App information: sideloaded, debuggable, very old target SDK.
- *  5. Adjustments: apps from a recognised store score 40% lower, system apps 70% lower.
+ *  5. Adjustments: apps from a recognised store score 40% lower, system apps 70% lower
+ *     and never above Medium (pre-installed apps hold many permissions legitimately).
  *
  * The result is clamped to 0-100 and mapped to a level (see RiskLevel). A high score means
  * "worth a closer look", not "this app is malware".
@@ -29,6 +30,8 @@ public final class RiskAnalyzer {
     public static final double TRUSTED_STORE_FACTOR = 0.6;
     public static final double SYSTEM_APP_FACTOR = 0.3;
     public static final double NOT_GRANTED_FACTOR = 0.5;
+    /** System apps never go above Medium (one point below the High threshold). */
+    public static final int SYSTEM_APP_MAX_SCORE = RiskLevel.HIGH_MIN - 1;
 
     private static final String P = "android.permission.";
     private static final String INTERNET = P + "INTERNET";
@@ -158,6 +161,11 @@ public final class RiskAnalyzer {
         if (a.systemApp && score > 0) {
             score *= SYSTEM_APP_FACTOR;
             reasons.add(new Reason(0, "Pre-installed system app, so the score is reduced by 70%."));
+            if (score > SYSTEM_APP_MAX_SCORE) {
+                score = SYSTEM_APP_MAX_SCORE;
+                reasons.add(new Reason(0, "Pre-installed apps legitimately hold many permissions and cannot be "
+                        + "chosen by you, so they are never rated above Medium. This is for your awareness only."));
+            }
         }
 
         int finalScore = (int) Math.max(0, Math.min(100, Math.round(score)));
