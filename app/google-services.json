@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "905653054980",
+    "project_id": "prohori-4048d",
+    "storage_bucket": "prohori-4048d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:905653054980:android:c3306e513d71dd63d10f51",
+        "android_client_info": {
+          "package_name": "com.prohori.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAPpIWSD-gjrLO0UiXeicYB1WQH69sCLcI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

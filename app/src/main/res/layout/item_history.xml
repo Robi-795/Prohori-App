@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ProhoriCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tv_type"
+            style="@style/ProhoriHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Quick Scan" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            style="@style/ProhoriCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="date" />
+
+        <TextView
+            android:id="@+id/tv_summary"
+            style="@style/ProhoriBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="summary" />
+
+        <TextView
+            android:id="@+id/tv_breakdown"
+            style="@style/ProhoriCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="breakdown" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

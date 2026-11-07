@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ProhoriCard"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/tv_perm_name"
+            style="@style/ProhoriHeading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Permission"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_perm_state"
+            style="@style/ProhoriCaption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="granted" />
+
+        <TextView
+            android:id="@+id/tv_perm_explain"
+            style="@style/ProhoriBody"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="explanation" />
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

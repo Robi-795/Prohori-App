@@ -1,0 +1,47 @@
+rules_version = '2';
+
+// Prohori Firestore security rules.
+// Every document stores the owner's uid in "userId". A signed-in user can only read,
+// create, change or delete documents that belong to them. Everything else is denied.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function signedIn() {
+      return request.auth != null;
+    }
+    function ownsExisting() {
+      return signedIn() && resource.data.userId == request.auth.uid;
+    }
+    function ownsNew() {
+      return signedIn() && request.resource.data.userId == request.auth.uid;
+    }
+
+    // users/{uid}: the document id IS the uid
+    match /users/{userId} {
+      allow read, write: if signedIn() && request.auth.uid == userId;
+    }
+
+    match /scan_history/{scanId} {
+      allow create: if ownsNew();
+      allow read, delete: if ownsExisting();
+      allow update: if ownsExisting() && ownsNew();
+    }
+
+    match /security_alerts/{alertId} {
+      allow create: if ownsNew();
+      allow read, delete: if ownsExisting();
+      allow update: if ownsExisting() && ownsNew();
+    }
+
+    match /device_information/{deviceId} {
+      allow create: if ownsNew();
+      allow read, delete: if ownsExisting();
+      allow update: if ownsExisting() && ownsNew();
+    }
+
+    // Anything not listed above is blocked.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

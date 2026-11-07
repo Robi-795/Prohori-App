@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg">#0A1628</color>
+    <color name="surface">#112240</color>
+    <color name="surface_alt">#17305A</color>
+    <color name="stroke">#1F3A66</color>
+    <color name="accent">#3B82F6</color>
+    <color name="accent_dark">#2563EB</color>
+    <color name="text_primary">#E8EEF7</color>
+    <color name="text_secondary">#9FB0C8</color>
+    <color name="white">#FFFFFF</color>
+    <color name="risk_critical">#EF4444</color>
+    <color name="risk_high">#F97316</color>
+    <color name="risk_medium">#EAB308</color>
+    <color name="risk_low">#38BDF8</color>
+    <color name="risk_safe">#22C55E</color>
+    <color name="launcher_bg">#0A1628</color>
+</resources>

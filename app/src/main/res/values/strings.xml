@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PROHORI</string>
+    <string name="tagline">Smart intrusion detection and mobile security monitoring</string>
+
+    <string name="disclaimer">Risk levels are indicators based on permissions and app information. They are not a malware verdict. A sensitive permission does not mean an app is malicious.</string>
+
+    <string name="privacy_text">What Prohori reads on this phone\n\nThe list of installed apps with their name, package name, version, requested permissions and install source. It also checks whether an accessibility service, keyboard, notification listener or device admin app is currently enabled. Prohori does not read keystrokes, messages, photos, files, passwords or the inside of other apps.\n\nWhat stays on this phone\n\nYour settings and a short summary of your last scan.\n\nWhat is uploaded (only when Cloud sync is ON in Settings)\n\nScan summaries, the apps rated Medium or higher with the reasons, security alerts, and basic device info (device model, Android version and push token). Everything is saved in your own Firebase account and protected by Firestore security rules, so other users cannot read it. The owner of the Firebase project can access the database.\n\nAccount data\n\nYour name and email are stored for your account. Your password is handled by Firebase Authentication and is never stored by Prohori.\n\nYour control\n\nYou can turn Cloud sync off at any time and delete your scan history, alerts and device info from Settings.</string>
+
+    <string name="terms_text">1. Prohori is a security awareness tool. It highlights risk indicators; it cannot guarantee that an app is safe or harmful.\n\n2. Prohori never uninstalls, disables or changes other apps. You decide what to do with each result.\n\n3. Use Prohori only on devices you own or are allowed to inspect.\n\n4. The app is provided as is, without warranty. Do not rely on it as your only protection.\n\n5. You are responsible for keeping your account password private.</string>
+
+    <string name="about_text">PROHORI is the Android companion of the Prohori intrusion detection project. It inspects the apps installed on your phone using the information Android shares with normal apps, applies a transparent rule-based risk analysis, and keeps your scan history and alerts in your own private account.</string>
+
+    <string name="limits_text">What Prohori cannot do\n\nAndroid apps are sandboxed. A normal app cannot read keyboard input, look inside other apps, or list every running process. Prohori therefore works with permissions, install source and enabled special services (accessibility, keyboard, notification listener, device admin). This is a risk review, not an antivirus engine.</string>
+</resources>
